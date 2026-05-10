@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <title>MatchFuel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark">M</span>
+      <div class="brand-text">
+        <h1 class="brand-name">MATCHFUEL</h1>
+        <p class="brand-tagline">Train · Eat · Perform</p>
+      </div>
+    </div>
+    <button id="proUpgradeBtn" class="pro-btn" title="Виж Pro функциите">
+      <span class="pro-diamond">◆</span> PRO
+    </button>
+  </header>
+
+  <!-- =============================================
+       PRO MODAL (feature 9 — UI only, no backend)
+       ============================================= -->
+  <div id="proModal" class="pro-modal-overlay" style="display:none">
+    <div class="pro-modal">
+      <button id="proCloseBtn" class="pro-close" aria-label="Затвори">✕</button>
+
+      <div class="pro-modal-header">
+        <span class="pro-diamond pro-diamond-large">💎</span>
+        <h2>MatchFuel Pro</h2>
+        <p class="pro-tagline">Свържи се с устройствата си и виж пулса в реално време.</p>
+      </div>
+
+      <div class="pro-section">
+        <h3>📡 Налични устройства</h3>
+        <div class="pro-device-grid">
+          <div class="pro-device" data-device="google-fit">
+            <span class="pro-device-icon">🟢</span>
+            <strong>Google Fit</strong>
+            <span class="pro-locked-tag">Available in Pro</span>
+          </div>
+          <div class="pro-device" data-device="apple-health">
+            <span class="pro-device-icon">🍎</span>
+            <strong>Apple Health</strong>
+            <span class="pro-locked-tag">Available in Pro</span>
+          </div>
+          <div class="pro-device" data-device="garmin">
+            <span class="pro-device-icon">⌚</span>
+            <strong>Garmin</strong>
+            <span class="pro-locked-tag">Available in Pro</span>
+          </div>
+          <div class="pro-device" data-device="polar">
+            <span class="pro-device-icon">❤️</span>
+            <strong>Polar</strong>
+            <span class="pro-locked-tag">Available in Pro</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pro-section">
+        <h3>📷 Качи снимка на пулсомер</h3>
+        <p class="pro-section-hint">
+          Снимай дисплея на пулсомера — Pro ще разчете стойностите автоматично.
+        </p>
+        <button id="proHrUploadBtn" class="pro-locked-btn">
+          📤 Качи снимка <span class="pro-locked-tag">Available in Pro</span>
+        </button>
+      </div>
+
+      <div class="pro-section">
+        <h3>💓 Real-time сърдечен ритъм</h3>
+        <div class="pro-hr-monitor pro-locked">
+          <div class="pro-hr-value">-- <span class="pro-hr-unit">bpm</span></div>
+          <div class="pro-hr-line"></div>
+          <p class="pro-locked-tag">Available in Pro</p>
+        </div>
+      </div>
+
+      <button id="proCtaBtn" class="pro-cta-btn">
+        💎 Активирай Pro — 9.99лв/месец
+      </button>
+    </div>
+  </div>
+
+
+
+  <!-- =============================================
+       PROFILE BAR + TABS (feature 10)
+       ============================================= -->
+  <div class="profile-bar">
+    <label class="profile-bar-label">ПРОФИЛ</label>
+    <select id="profileSelect" class="profile-select"></select>
+    <button id="newProfileBtn"    class="profile-bar-btn" title="Нов профил">+ Нов</button>
+    <button id="deleteProfileBtn" class="profile-bar-btn danger" title="Изтрий профил">×</button>
+  </div>
+
+  <nav class="tab-nav">
+    <button class="tab-btn active" data-tab="profile">ПРОФИЛ</button>
+    <button class="tab-btn"        data-tab="plan">ПЛАН</button>
+    <button class="tab-btn"        data-tab="history">ИСТОРИЯ</button>
+  </nav>
+
+  <div class="tab-panel" id="tab-profile">
+
+  <section>
+    <h2 class="section-title"><span class="title-bar"></span>Данни за играча</h2>
+
+    <div class="profile-grid">
+      <input id="weight"    type="number" placeholder="Тегло (кг)" />
+      <input id="height"    type="number" placeholder="Височина (см)" />
+      <input id="age"       type="number" placeholder="Възраст" />
+      <select id="gender">
+        <option value="">Пол...</option>
+        <option value="male">Мъж</option>
+        <option value="female">Жена</option>
+      </select>
+      <input id="sleep"     type="number" placeholder="Часове сън" />
+      <select id="position">
+        <option value="">Позиция...</option>
+        <option value="goalkeeper">Вратар</option>
+        <option value="defender">Защитник</option>
+        <option value="midfielder">Полузащитник</option>
+        <option value="forward">Нападател</option>
+        <option value="referee">Съдия</option>
+      </select>
+      <select id="diet">
+        <option value="regular">Обикновен</option>
+        <option value="vegetarian">Вегетарианец</option>
+        <option value="vegan">Веган</option>
+        <option value="gluten_free">Без глутен</option>
+      </select>
+      <select id="season">
+        <option value="cool">Сезон: хладно</option>
+        <option value="cold">Сезон: студено</option>
+        <option value="warm">Сезон: топло</option>
+        <option value="hot">Сезон: горещо</option>
+      </select>
+    </div>
+
+    <div class="profile-grid">
+      <label class="profile-label">Час на ставане
+        <input id="wakeUpTime" type="time" value="07:00" />
+      </label>
+      <label class="profile-label">Час на мач
+        <input id="matchTime" type="time" value="15:00" />
+      </label>
+      <label class="profile-label">Дължина на мач (мин)
+        <input id="matchDuration" type="number" min="1" max="130" value="90" />
+      </label>
+      <label class="checkbox-label">
+        <input id="skipBreakfast" type="checkbox" />
+        Пропусни закуска
+      </label>
+    </div>
+
+    <!-- Незадължителни тегла за match-day трекинг -->
+    <div class="profile-grid">
+      <label class="profile-label">Тегло преди закуска
+        <input id="morningWeight"  type="number" step="0.1" placeholder="кг (незадължително)" />
+      </label>
+      <label class="profile-label">Тегло след мач
+        <input id="postMatchWeight" type="number" step="0.1" placeholder="кг (след мача)" />
+      </label>
+    </div>
+
+    <div id="bodyFatContainer" class="bf-container">
+      <div class="bf-placeholder">
+        <span class="bf-placeholder-icon">▣</span>
+        <div>
+          <strong>% телесни мазнини</strong>
+          <p>Попълни <em>тегло, височина, възраст и пол</em>, за да се покаже скалата с твоя индекс.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </div><!-- /tab-profile -->
+
+  <div class="tab-panel" id="tab-plan" style="display:none">
+
+  <section>
+    <h2 class="section-title"><span class="title-bar"></span>Последни 3 тренировки</h2>
+    <p class="section-hint">По-скорошните се отчитат с по-голяма тежест за умората.</p>
+    <div id="sessionsContainer"></div>
+    <button id="addSessionBtn">+ Добави тренировка</button>
+  </section>
+
+  <section>
+    <h2 class="section-title"><span class="title-bar"></span>Контузии <span class="title-suffix">(по избор)</span></h2>
+    <p class="section-hint">
+      Изброй активни контузии (напр. „коляно, глезен"). Засегнатите упражнения ще бъдат пропуснати.
+    </p>
+    <input id="injuries" type="text" class="injuries-input"
+           placeholder="напр. коляно, ляв глезен, гръб" />
+    <div class="intensity-row">
+      <span class="intensity-label">Интензивност на загрявката:</span>
+      <label class="radio-pill">
+        <input type="radio" name="warmupIntensity" value="full" checked />
+        <span>Пълна</span>
+      </label>
+      <label class="radio-pill">
+        <input type="radio" name="warmupIntensity" value="light" />
+        <span>По-лека</span>
+      </label>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title"><span class="title-bar"></span>Вечеря <span class="title-suffix">(предишния ден)</span></h2>
+    <div id="foodContainer"></div>
+    <button id="addFoodBtn">+ Добави храна</button>
+  </section>
+
+  <button id="generateBtn">ГЕНЕРИРАЙ ПЛАН</button>
+
+  <section id="chartSection" style="display:none">
+    <h2 class="section-title"><span class="title-bar"></span>Енергийно ниво през деня</h2>
+    <p class="chart-note">
+      Симулация на енергийните нива — от вечерята до края на мача.
+      Пунктираните линии показват ключовите моменти.
+    </p>
+    <canvas id="energyCanvas" height="100"></canvas>
+  </section>
+
+  <div id="planOutput"></div>
+
+  <!-- =============================================
+       ФИЙДБАК СЕКЦИЯ — нов sleek дизайн
+       ============================================= -->
+  <section id="feedbackSection" style="display:none" class="feedback-section">
+
+    <div class="fb-header">
+      <div>
+        <div class="fb-title-row">
+          <h2 class="fb-title">Фийдбак след мача</h2>
+          <span class="fb-badge">POST-MATCH</span>
+        </div>
+        <p class="fb-subtitle">
+          Попълни след мача — следващият план ще се адаптира автоматично.
+        </p>
+      </div>
+    </div>
+
+    <!-- Въпрос 1: Рейтинг 1-5 -->
+    <div class="fb-card">
+      <p class="fb-label">ФИЗИЧЕСКО ПРЕДСТАВЯНЕ</p>
+      <div class="stars" id="starsGroup">
+        <div class="star s1" data-value="1"><span class="num">1</span><div class="bar"></div></div>
+        <div class="star s2" data-value="2"><span class="num">2</span><div class="bar"></div></div>
+        <div class="star s3" data-value="3"><span class="num">3</span><div class="bar"></div></div>
+        <div class="star s4" data-value="4"><span class="num">4</span><div class="bar"></div></div>
+        <div class="star s5" data-value="5"><span class="num">5</span><div class="bar"></div></div>
+      </div>
+      <div class="star-labels">
+        <span>Много лошо</span>
+        <span>Отлично</span>
+      </div>
+    </div>
+
+    <!-- Въпрос 2 -->
+    <div class="fb-card">
+      <p class="fb-label">УМОРА В КРАКАТА</p>
+      <div class="yn-row">
+        <button class="yn-btn" data-id="legFatigue" data-value="yes">
+          <div class="yn-dot"></div>Да
+        </button>
+        <button class="yn-btn" data-id="legFatigue" data-value="no">
+          <div class="yn-dot"></div>Не
+        </button>
+      </div>
+    </div>
+
+    <!-- Въпрос 3 -->
+    <div class="fb-card">
+      <p class="fb-label">ХРАНЕНЕТО ТВЪРДЕ ТЕЖКО?</p>
+      <div class="yn-row">
+        <button class="yn-btn" data-id="mealTooHeavy" data-value="yes">
+          <div class="yn-dot"></div>Да
+        </button>
+        <button class="yn-btn" data-id="mealTooHeavy" data-value="no">
+          <div class="yn-dot"></div>Не
+        </button>
+      </div>
+    </div>
+
+    <!-- Въпрос 4 -->
+    <div class="fb-card">
+      <p class="fb-label">ИЗДЪРЖА ЦЯЛ МАЧ?</p>
+      <div class="yn-row">
+        <button class="yn-btn" data-id="lastedFullMatch" data-value="yes">
+          <div class="yn-dot"></div>Да
+        </button>
+        <button class="yn-btn" data-id="lastedFullMatch" data-value="no">
+          <div class="yn-dot"></div>Не
+        </button>
+      </div>
+    </div>
+
+    <div class="fb-footer">
+      <button id="submitFeedbackBtn" class="fb-submit">ЗАПАЗИ ФИЙДБАК</button>
+      <div class="fb-live-score">
+        Оценка<br>
+        <strong id="liveScore">—</strong>
+      </div>
+    </div>
+
+    <div id="feedbackResult" style="display:none"></div>
+  </section>
+
+  <section id="recoverySection" style="display:none" class="recovery-section">
+    <h2 class="section-title"><span class="title-bar"></span>Възстановяване след мач</h2>
+    <p class="section-hint">
+      Първите 30 минути след мача са най-важни — мускулите са най-възприемчиви към протеин и въглехидрати.
+    </p>
+    <div id="recoveryOutput"></div>
+  </section>
+
+  </div><!-- /tab-plan -->
+
+  <div class="tab-panel" id="tab-history" style="display:none">
+
+  <section>
+    <h2 class="section-title"><span class="title-bar"></span>Минали мачове</h2>
+    <p class="section-hint">Само мачовете на текущия профил.</p>
+    <div id="historyList" class="history-list">
+      <p class="history-empty">Все още няма запазени мачове за този профил.</p>
+    </div>
+  </section>
+
+  <section id="progressSection" style="display:none">
+    <h2 class="section-title"><span class="title-bar"></span>Прогрес на представянето</h2>
+    <p class="chart-note">История на последните мачове след фийдбак.</p>
+    <canvas id="progressCanvas" height="100"></canvas>
+  </section>
+
+  </div><!-- /tab-history -->
+
+  <script src="ui.js" type="module"></script>
+</body>
+</html>

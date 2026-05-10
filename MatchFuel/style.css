@@ -1,0 +1,1449 @@
+/* =============================================
+   MATCHFUEL — SPORTY THEME
+   =============================================
+   Палитра:
+     #0b1220  → дълбоко тъмно (header, deep accents)
+     #111827  → панел тъмно
+     #16a34a  → primary green (action / brand)
+     #22c55e  → bright green (hover / highlights)
+     #f5f7f9  → app фон (off-white)
+     #e5e7eb  → borders
+     #1f2937  → текст
+   Шрифт: Inter (UI), Bebas Neue (display)
+   ============================================= */
+
+:root {
+  --bg:           #f5f7f9;
+  --panel:       #ffffff;
+  --panel-2:     #fafbfc;
+  --ink:         #0f172a;
+  --ink-soft:    #475569;
+  --ink-muted:   #94a3b8;
+  --line:        #e5e7eb;
+  --brand:       #16a34a;
+  --brand-2:     #22c55e;
+  --brand-deep:  #15803d;
+  --dark:        #0b1220;
+  --dark-2:      #111827;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'cv11', 'ss01';
+}
+
+h1 { margin: 0; font-weight: 700; letter-spacing: -0.02em; }
+h2 { margin: 24px 0 14px; font-weight: 700; font-size: 18px; letter-spacing: -0.01em; }
+h3 { margin: 8px 0 4px; font-weight: 600; }
+
+/* =============================================
+   APP HEADER (sporty hero)
+   ============================================= */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #0b1220 0%, #111827 70%, #14532d 100%);
+  color: #fff;
+  padding: 20px 28px;
+  margin: 24px -24px 24px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+.app-header::after {
+  /* Диагонална акцентна линия — спортно усещане без да доминира. */
+  content: '';
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(135deg, transparent 45%, rgba(34, 197, 94, 0.15) 46%, rgba(34, 197, 94, 0.15) 54%, transparent 55%);
+  pointer-events: none;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--brand-2), var(--brand-deep));
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: #fff;
+  letter-spacing: 0;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.4);
+}
+
+.brand-name {
+  font-family: 'Bebas Neue', 'Inter', sans-serif;
+  font-size: 32px;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: #fff;
+}
+
+.brand-tagline {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--brand-2);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+@media (max-width: 480px) {
+  .app-header { padding: 16px 18px; flex-wrap: wrap; gap: 12px; }
+  .brand-mark { width: 36px; height: 36px; font-size: 22px; }
+  .brand-name { font-size: 24px; }
+  .brand-tagline { font-size: 10px; letter-spacing: 0.2em; }
+}
+
+/* =============================================
+   SECTION TITLE (с акцентна лента)
+   ============================================= */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+.section-title .title-bar {
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  background: var(--brand);
+  border-radius: 2px;
+}
+.section-title .title-suffix {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin-left: auto;
+}
+
+/* =============================================
+   СЕКЦИИ
+   ============================================= */
+section {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+/* =============================================
+   РЕДОВЕ С ВХОДНИ ДАННИ
+   ============================================= */
+
+.session-row,
+.food-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* feature 6 — date input изглежда добре с фиксирана ширина,
+   за да не се разтегне на mobile. */
+.session-date {
+  min-width: 140px;
+}
+
+.section-hint {
+  color: #666;
+  font-size: 13px;
+  margin: -4px 0 8px;
+}
+
+/* =============================================
+   КОНТУЗИИ + ИНТЕНЗИВНОСТ (feature 7)
+   =============================================
+   Input-ът е full-width за да побере списък от зони.
+   Radio-pill-овете изглеждат като компактни toggle-и —
+   избраното състояние е тъмно зелено, неизбраното — сиво.
+   ============================================= */
+.injuries-input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.intensity-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.intensity-label {
+  font-size: 13px;
+  color: #555;
+  margin-right: 4px;
+}
+
+.radio-pill {
+  position: relative;
+  cursor: pointer;
+}
+
+.radio-pill input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.radio-pill span {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  background: #f4f4f4;
+  font-size: 13px;
+  color: #444;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.radio-pill input[type="radio"]:checked + span {
+  background: #2e7d32;
+  border-color: #2e7d32;
+  color: #fff;
+}
+
+/* =============================================
+   ПРОПУСНАТИ УПРАЖНЕНИЯ (feature 7)
+   =============================================
+   Леко жълтеникав фон + warning икона стил —
+   потребителят трябва да забележи защо warmup-ът е по-кратък.
+   ============================================= */
+.skipped-exercises {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: #fff8e1;
+  border-left: 3px solid #f9a825;
+  border-radius: 4px;
+}
+
+.skipped-title {
+  margin: 0 0 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6d4c00;
+}
+
+.skipped-exercises ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  color: #555;
+}
+
+.skipped-exercises .skipped-name {
+  font-weight: 500;
+  color: #333;
+}
+
+/* =============================================
+   POST-MATCH RECOVERY (feature 8)
+   =============================================
+   Две карти една до друга на десктоп, една под друга
+   на мобилен (auto-fit, minmax). Картите имат лек bg
+   за да се отделят визуално от основния timeline.
+   ============================================= */
+.recovery-section h2 {
+  margin-bottom: 4px;
+}
+
+.recovery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.recovery-card {
+  background: #f1f8e9;
+  border-left: 4px solid #2e7d32;
+  border-radius: 6px;
+  padding: 14px 16px;
+}
+
+.recovery-card h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: #2e7d32;
+}
+
+.recovery-row {
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.recovery-row strong {
+  color: #1b5e20;
+}
+
+.recovery-suggest {
+  color: #555;
+  font-size: 13px;
+  margin-left: 6px;
+}
+
+.recovery-exercises {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recovery-exercises li {
+  padding: 6px 0;
+  border-bottom: 1px solid #dcedc8;
+  font-size: 14px;
+}
+
+.recovery-exercises li:last-child {
+  border-bottom: none;
+}
+
+.recovery-exercises strong {
+  color: #1b5e20;
+}
+
+.recovery-exercises .recovery-duration {
+  color: #888;
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+.recovery-exercises em {
+  display: block;
+  color: #666;
+  font-size: 12px;
+  font-style: normal;
+  margin-top: 2px;
+}
+
+/* .food-row е референтен контекст за autocomplete dropdown-а,
+   който е с position: absolute под input-а. */
+.food-row {
+  position: relative;
+}
+
+/* =============================================
+   AUTOCOMPLETE ЗА ХРАНИ
+   =============================================
+   Dropdown-ът виси под цялата food-row (100% ширина на реда),
+   за да покрие и името, и грамовете, вместо да е с фиксирана
+   ширина само под input-а с името.
+   ============================================= */
+
+.food-suggestions {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #c8c8c8;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  list-style: none;
+}
+
+.food-suggestions li {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.food-suggestions li:last-child {
+  border-bottom: none;
+}
+
+.food-suggestions li:hover {
+  background: #2e7d32;
+  color: white;
+}
+
+.food-suggestions li:hover .sugg-label {
+  color: #e8f5e9;
+}
+
+.sugg-main  { font-weight: 500; }
+.sugg-label { opacity: 0.6; font-size: 13px; }
+
+/* =============================================
+   ВАЛИДАЦИОННИ МАРКЕРИ ЗА ПОЛЕТО "ХРАНА"
+   =============================================
+   Цветовете следват семантиката:
+     червено  → грешка (не е разпозната)
+     жълто    → предупреждение (fuzzy корекция)
+     син      → информация (използваме средни за категорията)
+   ============================================= */
+
+.food-name.invalid {
+  border-color: #d32f2f;
+  background: #fff0f0;
+}
+
+.food-name.fuzzy-matched {
+  border-color: #f9a825;
+  background: #fffde7;
+}
+
+.food-name.category-matched {
+  border-color: #1976d2;
+  background: #e3f2fd;
+}
+
+/* =============================================
+   РАЗШИРЕН ПРОФИЛ (feature 2)
+   =============================================
+   profile-grid е adaptive grid — брой колони според
+   ширината. На телефон става 1 колона, на таблет 2,
+   на широк екран 3+.
+   ============================================= */
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.profile-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: #555;
+}
+
+.profile-label input {
+  width: 100%;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #222;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fafafa;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.profile-line {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+/* =============================================
+   BODY FAT ВИЗУАЛИЗАЦИЯ
+   =============================================
+   Сегментите са flex елементи с flex-grow пропорционален
+   на ширината на съответния BF% диапазон. Маркерът ▼
+   е абсолютно позициониран отгоре с left: X%.
+   ============================================= */
+
+.bf-container {
+  margin-top: 14px;
+}
+
+.bf-container:empty {
+  display: none;
+}
+
+/* Placeholder — обяснява кога ще се появи скалата.
+   Изчезва когато bodyFat.js пише реалното съдържание. */
+.bf-placeholder {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--panel-2);
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: var(--ink-soft);
+}
+.bf-placeholder-icon {
+  font-size: 22px;
+  color: var(--brand);
+  line-height: 1;
+}
+.bf-placeholder strong {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.bf-placeholder p {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.4;
+  margin: 0;
+}
+.bf-placeholder em {
+  font-style: normal;
+  color: var(--brand-deep);
+  font-weight: 600;
+}
+
+.bf-summary {
+  font-size: 14px;
+  margin-bottom: 8px;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.bf-value {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.bf-category {
+  color: #777;
+  font-size: 13px;
+}
+
+.bf-bar-wrap {
+  position: relative;
+  padding-top: 18px;  /* място за маркера */
+}
+
+.bf-bar {
+  display: flex;
+  width: 100%;
+  height: 26px;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bf-segment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 10px;
+  line-height: 1.1;
+  text-align: center;
+  padding: 2px;
+  overflow: hidden;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.bf-seg-label { font-weight: 600; }
+.bf-seg-range { opacity: 0.85; font-size: 9px; }
+
+.bf-marker {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  color: #111;
+  font-size: 18px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+input, select {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 14px;
+  flex: 1;
+  background: #fff;
+  color: var(--ink);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  font-family: inherit;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+}
+
+/* =============================================
+   БУТОНИ — общи
+   ============================================= */
+
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+}
+
+#generateBtn {
+  background: linear-gradient(135deg, var(--brand-2), var(--brand-deep));
+  color: white;
+  width: 100%;
+  padding: 16px;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  margin: 18px 0;
+  text-transform: uppercase;
+  box-shadow: 0 6px 18px -4px rgba(22, 163, 74, 0.5);
+}
+#generateBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px -4px rgba(22, 163, 74, 0.6);
+}
+
+#addSessionBtn,
+#addFoodBtn {
+  background: var(--panel-2);
+  color: var(--brand-deep);
+  border: 1px dashed var(--brand);
+  margin-top: 6px;
+}
+#addSessionBtn:hover,
+#addFoodBtn:hover {
+  background: #ecfdf5;
+}
+
+.remove-btn {
+  background: transparent;
+  color: var(--ink-muted);
+  flex: 0;
+  padding: 8px 12px;
+  font-weight: 500;
+}
+.remove-btn:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* =============================================
+   ОБОБЩЕНИЕ
+   ============================================= */
+
+.summary {
+  background: linear-gradient(135deg, #ecfdf5, #f0fdf4);
+  border: 1px solid #bbf7d0;
+  border-left: 4px solid var(--brand);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+
+.summary h2 {
+  margin-top: 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--brand-deep);
+}
+
+.summary p { margin: 6px 0; font-size: 14px; color: var(--ink); }
+.summary strong { color: var(--ink); font-weight: 700; }
+
+.correction-banner {
+  background: #fff8e1;
+  border-left: 4px solid #f9a825;
+  border-radius: 4px;
+  padding: 10px 16px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #5d4037;
+}
+
+/* =============================================
+   ВРЕМЕВА ЛИНИЯ
+   ============================================= */
+
+.timeline-event {
+  display: flex;
+  gap: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 10px;
+  border-left: 4px solid var(--brand);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.timeline-event:hover {
+  box-shadow: 0 4px 14px -2px rgba(15, 23, 42, 0.08);
+}
+
+/* feature 4 — hydration reminder событие.
+   По-кратко (по-малко padding), синя ивица и светло-син фон —
+   за да не пресилва вниманието между по-важните хранения. */
+.timeline-event.hydration-event {
+  border-left-color: #1e88e5;
+  padding: 10px 16px;
+  background: #f0f7ff;
+}
+.timeline-event.hydration-event .event-time {
+  color: #1e88e5;
+}
+.timeline-event.hydration-event h3 {
+  font-size: 15px;
+  margin: 0 0 4px 0;
+}
+
+.hydration-breakdown {
+  color: #666;
+  font-size: 13px;
+}
+
+.event-time {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2e7d32;
+  min-width: 60px;
+}
+
+.event-body { flex: 1; }
+
+.note {
+  color: #666;
+  font-size: 13px;
+  margin: 4px 0 8px;
+}
+
+.chart-note {
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+ul { padding-left: 20px; margin: 4px 0; }
+li { margin: 2px 0; }
+
+/* =============================================
+   УПРАЖНЕНИЯ
+   ============================================= */
+
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.exercise-card {
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.exercise-gif {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.exercise-no-gif {
+  width: 100%;
+  height: 160px;
+  background: #e8f5e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+
+.exercise-info {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.exercise-info strong { font-size: 14px; color: #222; }
+.exercise-info span   { font-size: 13px; color: #2e7d32; font-weight: bold; }
+.exercise-info em     { font-size: 12px; color: #666; }
+
+/* =============================================
+   ФИЙДБАК СЕКЦИЯ — SLEEK ДИЗАЙН
+   ============================================= */
+
+.feedback-section {
+  background: #0f0f1a !important; /* тъмен фон само за тази секция */
+  border-radius: 12px !important;
+  padding: 24px !important;
+}
+
+.fb-header { margin-bottom: 20px; }
+
+.fb-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.fb-title {
+  color: white !important;
+  margin: 0 !important;
+  font-size: 20px;
+}
+
+.fb-badge {
+  background: rgba(0, 230, 118, 0.15);
+  color: #00e676;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(0, 230, 118, 0.3);
+}
+
+.fb-subtitle {
+  color: #888;
+  font-size: 13px;
+}
+
+/* Карти вътре във фийдбак секцията */
+.fb-card {
+  background: #1a1a2e;
+  border: 1px solid #2a2a45;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 10px;
+}
+
+.fb-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #555;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+/* =============================================
+   РЕЙТИНГ 1-5
+   ============================================= */
+
+.stars {
+  display: flex;
+  gap: 8px;
+}
+
+.star {
+  flex: 1;
+  height: 56px;
+  border-radius: 8px;
+  border: 1px solid #2a2a45;
+  background: #0f0f1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 6px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.star .num {
+  font-size: 16px;
+  font-weight: 600;
+  color: #555;
+  transition: color 0.15s;
+}
+
+.star .bar {
+  width: 20px;
+  height: 3px;
+  border-radius: 2px;
+  background: #2a2a45;
+  transition: background 0.15s;
+}
+
+/* Активни цветове за всяка оценка */
+.star.s1.active { border-color: #e53935; background: rgba(229,57,53,0.1); }
+.star.s1.active .num { color: #e53935; }
+.star.s1.active .bar { background: #e53935; }
+
+.star.s2.active { border-color: #fb8c00; background: rgba(251,140,0,0.1); }
+.star.s2.active .num { color: #fb8c00; }
+.star.s2.active .bar { background: #fb8c00; }
+
+.star.s3.active { border-color: #fdd835; background: rgba(253,216,53,0.1); }
+.star.s3.active .num { color: #fdd835; }
+.star.s3.active .bar { background: #fdd835; }
+
+.star.s4.active { border-color: #43a047; background: rgba(67,160,71,0.1); }
+.star.s4.active .num { color: #43a047; }
+.star.s4.active .bar { background: #43a047; }
+
+.star.s5.active { border-color: #00e676; background: rgba(0,230,118,0.1); }
+.star.s5.active .num { color: #00e676; }
+.star.s5.active .bar { background: #00e676; }
+
+.star-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #444;
+}
+
+/* =============================================
+   ДА / НЕ БУТОНИ
+   ============================================= */
+
+.yn-row {
+  display: flex;
+  gap: 8px;
+}
+
+.yn-btn {
+  flex: 1;
+  height: 42px;
+  border-radius: 8px;
+  border: 1px solid #2a2a45;
+  background: #0f0f1a;
+  color: #555;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.15s;
+}
+
+.yn-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2a2a45;
+  transition: background 0.15s;
+}
+
+/* Активно "Да" → зелено */
+.yn-btn.active-yes {
+  border-color: #00e676;
+  color: #00e676;
+  background: rgba(0, 230, 118, 0.08);
+}
+.yn-btn.active-yes .yn-dot { background: #00e676; }
+
+/* Активно "Не" → червено */
+.yn-btn.active-no {
+  border-color: #e53935;
+  color: #e53935;
+  background: rgba(229, 57, 53, 0.08);
+}
+.yn-btn.active-no .yn-dot { background: #e53935; }
+
+/* =============================================
+   ФУТЪР — Submit + Live Score
+   ============================================= */
+
+.fb-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.fb-submit {
+  flex: 1;
+  height: 46px;
+  border-radius: 8px;
+  border: none;
+  background: #00e676;
+  color: #0f0f1a;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.08em;
+  transition: opacity 0.15s;
+}
+
+.fb-submit:hover { opacity: 0.85; }
+
+.fb-live-score {
+  font-size: 12px;
+  color: #555;
+  text-align: center;
+  min-width: 60px;
+}
+
+.fb-live-score strong {
+  display: block;
+  font-size: 22px;
+  color: #00e676;
+  line-height: 1.2;
+}
+
+/* =============================================
+   РЕЗУЛТАТ СЛЕД ЗАПАЗВАНЕ
+   ============================================= */
+
+.feedback-saved {
+  background: #1a1a2e;
+  border: 1px solid rgba(0, 230, 118, 0.3);
+  border-radius: 10px;
+  padding: 16px;
+  margin-top: 16px;
+  color: white;
+}
+
+.feedback-saved h3 { color: #00e676; margin-bottom: 8px; }
+.feedback-saved p  { color: #aaa; font-size: 14px; margin: 4px 0; }
+.feedback-saved ul { margin-top: 8px; padding-left: 20px; }
+.feedback-saved li { color: #ccc; font-size: 13px; padding: 2px 0; }
+
+/* =============================================
+   PRO UI (feature 9 — UI only, no backend)
+   =============================================
+   Header става flex row за да побере h1 + бутона.
+   Pro бутонът има diamond gradient — да изглежда премиум,
+   без да крещи. Modal-ът е classic centered overlay с
+   blur зад себе си.
+   ============================================= */
+
+.pro-btn {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: var(--dark);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.pro-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(251, 191, 36, 0.55);
+}
+
+.pro-diamond {
+  font-size: 12px;
+  color: var(--dark);
+}
+.pro-diamond-large {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* === Modal overlay === */
+.pro-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.pro-modal {
+  background: #ffffff;
+  border-radius: 14px;
+  max-width: 520px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.pro-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: #888;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.pro-close:hover { background: #f0f0f0; color: #333; }
+
+.pro-modal-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.pro-modal-header h2 {
+  background: linear-gradient(135deg, #1e3a8a, #6d28d9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  font-size: 24px;
+}
+.pro-tagline {
+  color: #666;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.pro-section {
+  margin: 20px 0;
+}
+.pro-section h3 {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+}
+.pro-section-hint {
+  color: #777;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+/* === Device grid === */
+.pro-device-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.pro-device {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.15s, border-color 0.15s;
+}
+.pro-device:hover {
+  opacity: 1;
+  border-color: #6d28d9;
+}
+.pro-device-icon { font-size: 18px; }
+.pro-device strong { font-size: 13px; color: #222; }
+
+/* === Locked tag (used inside devices, button, monitor) === */
+.pro-locked-tag {
+  font-size: 10px;
+  background: #fef3c7;
+  color: #92400e;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pro-locked-btn {
+  background: #f3f4f6;
+  border: 1px dashed #cbd5e1;
+  color: #555;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+.pro-locked-btn:hover { background: #e5e7eb; }
+
+/* === HR monitor placeholder === */
+.pro-hr-monitor {
+  background: #0f172a;
+  color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+.pro-hr-monitor.pro-locked { opacity: 0.85; }
+.pro-hr-value {
+  font-size: 36px;
+  font-weight: 700;
+  font-family: monospace;
+  color: #f87171;
+}
+.pro-hr-unit {
+  font-size: 14px;
+  color: #888;
+  font-weight: 400;
+}
+/* Линия с pulse анимация — да създаде усещане за "живо" UI,
+   което потребителят знае, че е заглушено в free версия. */
+.pro-hr-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #f87171, transparent);
+  margin: 12px 0;
+  animation: pro-pulse 1.5s ease-in-out infinite;
+}
+@keyframes pro-pulse {
+  0%, 100% { opacity: 0.3; }
+  50%      { opacity: 1; }
+}
+
+/* === Pro CTA button === */
+.pro-cta-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #1e3a8a, #6d28d9);
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: transform 0.15s;
+}
+.pro-cta-btn:hover { transform: translateY(-1px); }
+
+/* =============================================
+   PROFILES + TABS (feature 10)
+   =============================================
+   Profile bar: малък ред над табовете със select + бутони.
+   Tab nav: подчертан активен таб (underline indicator).
+   History list: компактни карти за всеки минал мач.
+   ============================================= */
+
+.profile-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.profile-bar-label {
+  font-size: 11px;
+  color: var(--ink-muted);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.profile-select {
+  flex: 1;
+  min-width: 160px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  background: var(--panel-2);
+  color: var(--ink);
+}
+
+.profile-bar-btn {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.profile-bar-btn:hover { background: var(--brand-deep); }
+
+.profile-bar-btn.danger {
+  background: transparent;
+  color: var(--ink-muted);
+  border: 1px solid var(--line);
+  font-size: 16px;
+  line-height: 1;
+  padding: 6px 12px;
+}
+.profile-bar-btn.danger:hover {
+  background: #fee2e2;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+/* === Tab nav === */
+.tab-nav {
+  display: flex;
+  gap: 0;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 18px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.tab-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--ink-muted);
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.18s, color 0.18s, transform 0.1s;
+}
+
+.tab-btn:hover {
+  color: var(--ink);
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, var(--dark), var(--dark-2));
+  color: #fff;
+  box-shadow: 0 4px 12px -4px rgba(15, 23, 42, 0.4);
+}
+
+.tab-panel {
+  /* Анимация при показване — фини fade-in,
+     за да не изглежда tab switch-ът рязко. */
+  animation: tab-fade 0.2s ease-in;
+}
+
+@keyframes tab-fade {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* === History list === */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.history-empty {
+  color: #999;
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+}
+
+.history-card {
+  background: #fff;
+  border-left: 4px solid #2e7d32;
+  border-radius: 6px;
+  padding: 12px 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.history-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.history-card-head strong {
+  color: #1b5e20;
+  font-size: 15px;
+}
+
+.history-score {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.history-meta {
+  color: #555;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.history-fb {
+  color: #444;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.history-corrections {
+  color: #888;
+  font-size: 11px;
+  font-style: italic;
+}

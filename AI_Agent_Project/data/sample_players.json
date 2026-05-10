@@ -1,0 +1,282 @@
+{
+  "$schema": "https://matchfuel.local/schemas/sample-players.v1.json",
+  "generated_at": "2026-05-07",
+  "profile_count": 10,
+  "field_keys_per_profile": [
+    "weight", "height", "age", "gender", "sleep", "position", "diet",
+    "season", "wakeUpTime", "matchTime", "matchDuration",
+    "morningWeight", "postMatchWeight", "injuries",
+    "skipBreakfast", "warmupIntensity"
+  ],
+  "history_entry_shape": {
+    "date": "string (DD.MM.YYYY, bg-BG locale)",
+    "energy": "number (kcal recommended that day)",
+    "glycogen": "string (low|normal|high)",
+    "feedback": {
+      "physicalScore":   "number 1..5",
+      "legFatigue":      "boolean",
+      "mealTooHeavy":    "boolean",
+      "lastedFullMatch": "boolean"
+    },
+    "corrections": {
+      "energyMultiplier":  "number 0.70..1.30",
+      "carbMultiplier":    "number 0.70..1.30",
+      "portionMultiplier": "number 0.70..1.30"
+    },
+    "score": "number 0..100"
+  },
+
+  "profiles": {
+    "Erik Samodivkin": {
+      "fields": {
+        "weight": 72, "height": 180, "age": 23, "gender": "male",
+        "sleep": 7.5, "position": "midfielder", "diet": "regular",
+        "season": "cool", "wakeUpTime": "07:00", "matchTime": "15:00",
+        "matchDuration": 90, "morningWeight": 72.0, "postMatchWeight": 70.7,
+        "injuries": "", "skipBreakfast": false, "warmupIntensity": "full"
+      },
+      "history": [
+        { "date": "01.05.2026", "energy": 2890, "glycogen": "normal",
+          "feedback": { "physicalScore": 4, "legFatigue": false, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.00, "carbMultiplier": 1.00, "portionMultiplier": 1.00 },
+          "score": 90 },
+        { "date": "24.04.2026", "energy": 2890, "glycogen": "normal",
+          "feedback": { "physicalScore": 5, "legFatigue": false, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 0.95, "carbMultiplier": 1.00, "portionMultiplier": 1.00 },
+          "score": 100 },
+        { "date": "17.04.2026", "energy": 2950, "glycogen": "low",
+          "feedback": { "physicalScore": 4, "legFatigue": false, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.00, "carbMultiplier": 1.00, "portionMultiplier": 1.00 },
+          "score": 90 },
+        { "date": "10.04.2026", "energy": 2900, "glycogen": "normal",
+          "feedback": { "physicalScore": 3, "legFatigue": true, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.05, "carbMultiplier": 1.15, "portionMultiplier": 1.00 },
+          "score": 70 },
+        { "date": "03.04.2026", "energy": 2820, "glycogen": "normal",
+          "feedback": { "physicalScore": 3, "legFatigue": false, "mealTooHeavy": true, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.05, "carbMultiplier": 1.00, "portionMultiplier": 0.90 },
+          "score": 70 }
+      ]
+    },
+
+    "Lucas Petrov": {
+      "fields": {
+        "weight": 78, "height": 184, "age": 26, "gender": "male",
+        "sleep": 8, "position": "forward", "diet": "regular",
+        "season": "cool", "wakeUpTime": "06:30", "matchTime": "16:30",
+        "matchDuration": 90, "morningWeight": 78.1, "postMatchWeight": 76.4,
+        "injuries": "", "skipBreakfast": false, "warmupIntensity": "full"
+      },
+      "history": [
+        { "date": "02.05.2026", "energy": 3250, "glycogen": "normal",
+          "feedback": { "physicalScore": 5, "legFatigue": false, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 0.95, "carbMultiplier": 1.00, "portionMultiplier": 1.00 },
+          "score": 100 },
+        { "date": "25.04.2026", "energy": 3120, "glycogen": "normal",
+          "feedback": { "physicalScore": 2, "legFatigue": true, "mealTooHeavy": false, "lastedFullMatch": false },
+          "corrections": { "energyMultiplier": 1.20, "carbMultiplier": 1.25, "portionMultiplier": 1.00 },
+          "score": 40 },
+        { "date": "18.04.2026", "energy": 3050, "glycogen": "normal",
+          "feedback": { "physicalScore": 4, "legFatigue": false, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.00, "carbMultiplier": 1.00, "portionMultiplier": 1.00 },
+          "score": 90 },
+        { "date": "11.04.2026", "energy": 3100, "glycogen": "high",
+          "feedback": { "physicalScore": 4, "legFatigue": false, "mealTooHeavy": true, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.00, "carbMultiplier": 1.00, "portionMultiplier": 0.90 },
+          "score": 80 }
+      ]
+    },
+
+    "Mateo Vidović": {
+      "fields": {
+        "weight": 74, "height": 178, "age": 24, "gender": "male",
+        "sleep": 7, "position": "midfielder", "diet": "regular",
+        "season": "warm", "wakeUpTime": "07:30", "matchTime": "15:00",
+        "matchDuration": 90, "morningWeight": 74.2, "postMatchWeight": 72.6,
+        "injuries": "лек дискомфорт в дясно коляно", "skipBreakfast": false, "warmupIntensity": "light"
+      },
+      "history": [
+        { "date": "19.04.2026", "energy": 2980, "glycogen": "normal",
+          "feedback": { "physicalScore": 2, "legFatigue": true, "mealTooHeavy": false, "lastedFullMatch": false },
+          "corrections": { "energyMultiplier": 1.10, "carbMultiplier": 1.15, "portionMultiplier": 1.00 },
+          "score": 30 }
+      ]
+    },
+
+    "Anya Kowalska": {
+      "fields": {
+        "weight": 60, "height": 168, "age": 22, "gender": "female",
+        "sleep": 7.5, "position": "midfielder", "diet": "vegetarian",
+        "season": "cool", "wakeUpTime": "07:15", "matchTime": "14:00",
+        "matchDuration": 90, "morningWeight": 60.0, "postMatchWeight": 58.9,
+        "injuries": "", "skipBreakfast": false, "warmupIntensity": "full"
+      },
+      "history": [
+        { "date": "26.04.2026", "energy": 2410, "glycogen": "normal",
+          "feedback": { "physicalScore": 4, "legFatigue": false, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.00, "carbMultiplier": 1.00, "portionMultiplier": 1.00 },
+          "score": 90 },
+        { "date": "19.04.2026", "energy": 2380, "glycogen": "low",
+          "feedback": { "physicalScore": 3, "legFatigue": true, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.05, "carbMultiplier": 1.15, "portionMultiplier": 1.00 },
+          "score": 60 },
+        { "date": "12.04.2026", "energy": 2350, "glycogen": "normal",
+          "feedback": { "physicalScore": 4, "legFatigue": false, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.00, "carbMultiplier": 1.00, "portionMultiplier": 1.00 },
+          "score": 90 }
+      ]
+    },
+
+    "Jonas Becker": {
+      "fields": {
+        "weight": 80, "height": 186, "age": 28, "gender": "male",
+        "sleep": 7, "position": "defender", "diet": "gluten_free",
+        "season": "cool", "wakeUpTime": "07:00", "matchTime": "15:00",
+        "matchDuration": 90, "morningWeight": 79.8, "postMatchWeight": 78.4,
+        "injuries": "", "skipBreakfast": false, "warmupIntensity": "full"
+      },
+      "history": [
+        { "date": "03.05.2026", "energy": 3050, "glycogen": "normal",
+          "feedback": { "physicalScore": 4, "legFatigue": false, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.00, "carbMultiplier": 1.00, "portionMultiplier": 1.00 },
+          "score": 90 },
+        { "date": "26.04.2026", "energy": 3050, "glycogen": "normal",
+          "feedback": { "physicalScore": 4, "legFatigue": false, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.00, "carbMultiplier": 1.00, "portionMultiplier": 1.00 },
+          "score": 90 },
+        { "date": "19.04.2026", "energy": 3120, "glycogen": "normal",
+          "feedback": { "physicalScore": 3, "legFatigue": false, "mealTooHeavy": true, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.05, "carbMultiplier": 1.00, "portionMultiplier": 0.90 },
+          "score": 70 },
+        { "date": "12.04.2026", "energy": 3000, "glycogen": "normal",
+          "feedback": { "physicalScore": 4, "legFatigue": false, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.00, "carbMultiplier": 1.00, "portionMultiplier": 1.00 },
+          "score": 90 }
+      ]
+    },
+
+    "Hiro Tanaka": {
+      "fields": {
+        "weight": 75, "height": 182, "age": 27, "gender": "male",
+        "sleep": 7.5, "position": "goalkeeper", "diet": "regular",
+        "season": "cool", "wakeUpTime": "07:30", "matchTime": "15:00",
+        "matchDuration": 90, "morningWeight": 75.2, "postMatchWeight": 74.5,
+        "injuries": "", "skipBreakfast": false, "warmupIntensity": "full"
+      },
+      "history": [
+        { "date": "02.05.2026", "energy": 2620, "glycogen": "normal",
+          "feedback": { "physicalScore": 5, "legFatigue": false, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 0.95, "carbMultiplier": 1.00, "portionMultiplier": 1.00 },
+          "score": 100 },
+        { "date": "25.04.2026", "energy": 2680, "glycogen": "high",
+          "feedback": { "physicalScore": 4, "legFatigue": false, "mealTooHeavy": true, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.00, "carbMultiplier": 1.00, "portionMultiplier": 0.90 },
+          "score": 80 },
+        { "date": "18.04.2026", "energy": 2700, "glycogen": "normal",
+          "feedback": { "physicalScore": 4, "legFatigue": false, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.00, "carbMultiplier": 1.00, "portionMultiplier": 1.00 },
+          "score": 90 }
+      ]
+    },
+
+    "Diego Alvarez": {
+      "fields": {
+        "weight": 71, "height": 175, "age": 25, "gender": "male",
+        "sleep": 7, "position": "forward", "diet": "vegan",
+        "season": "warm", "wakeUpTime": "07:00", "matchTime": "16:00",
+        "matchDuration": 90, "morningWeight": 71.0, "postMatchWeight": 69.6,
+        "injuries": "", "skipBreakfast": false, "warmupIntensity": "full"
+      },
+      "history": [
+        { "date": "30.04.2026", "energy": 2880, "glycogen": "low",
+          "feedback": { "physicalScore": 3, "legFatigue": true, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.05, "carbMultiplier": 1.15, "portionMultiplier": 1.00 },
+          "score": 60 },
+        { "date": "23.04.2026", "energy": 2820, "glycogen": "low",
+          "feedback": { "physicalScore": 3, "legFatigue": true, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.05, "carbMultiplier": 1.15, "portionMultiplier": 1.00 },
+          "score": 60 },
+        { "date": "16.04.2026", "energy": 2850, "glycogen": "normal",
+          "feedback": { "physicalScore": 4, "legFatigue": false, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.00, "carbMultiplier": 1.00, "portionMultiplier": 1.00 },
+          "score": 90 }
+      ]
+    },
+
+    "Sofia Romano": {
+      "fields": {
+        "weight": 64, "height": 172, "age": 24, "gender": "female",
+        "sleep": 7, "position": "defender", "diet": "regular",
+        "season": "hot", "wakeUpTime": "06:30", "matchTime": "17:00",
+        "matchDuration": 90, "morningWeight": 64.1, "postMatchWeight": 62.4,
+        "injuries": "", "skipBreakfast": false, "warmupIntensity": "full"
+      },
+      "history": [
+        { "date": "01.05.2026", "energy": 2440, "glycogen": "normal",
+          "feedback": { "physicalScore": 3, "legFatigue": false, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.05, "carbMultiplier": 1.00, "portionMultiplier": 1.00 },
+          "score": 80 },
+        { "date": "24.04.2026", "energy": 2410, "glycogen": "normal",
+          "feedback": { "physicalScore": 2, "legFatigue": true, "mealTooHeavy": false, "lastedFullMatch": false },
+          "corrections": { "energyMultiplier": 1.20, "carbMultiplier": 1.25, "portionMultiplier": 1.00 },
+          "score": 40 },
+        { "date": "17.04.2026", "energy": 2380, "glycogen": "normal",
+          "feedback": { "physicalScore": 3, "legFatigue": false, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.05, "carbMultiplier": 1.00, "portionMultiplier": 1.00 },
+          "score": 80 },
+        { "date": "10.04.2026", "energy": 2360, "glycogen": "low",
+          "feedback": { "physicalScore": 3, "legFatigue": false, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.05, "carbMultiplier": 1.00, "portionMultiplier": 1.00 },
+          "score": 80 }
+      ]
+    },
+
+    "Marek Novák": {
+      "fields": {
+        "weight": 76, "height": 181, "age": 29, "gender": "male",
+        "sleep": 5.5, "position": "midfielder", "diet": "regular",
+        "season": "cool", "wakeUpTime": "06:00", "matchTime": "15:00",
+        "matchDuration": 90, "morningWeight": 76.0, "postMatchWeight": 74.4,
+        "injuries": "стара контузия в кръста", "skipBreakfast": true, "warmupIntensity": "light"
+      },
+      "history": [
+        { "date": "03.05.2026", "energy": 2780, "glycogen": "normal",
+          "feedback": { "physicalScore": 2, "legFatigue": true, "mealTooHeavy": false, "lastedFullMatch": false },
+          "corrections": { "energyMultiplier": 1.20, "carbMultiplier": 1.25, "portionMultiplier": 1.00 },
+          "score": 30 },
+        { "date": "26.04.2026", "energy": 2820, "glycogen": "normal",
+          "feedback": { "physicalScore": 3, "legFatigue": true, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.05, "carbMultiplier": 1.15, "portionMultiplier": 1.00 },
+          "score": 60 },
+        { "date": "19.04.2026", "energy": 2760, "glycogen": "low",
+          "feedback": { "physicalScore": 3, "legFatigue": true, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.05, "carbMultiplier": 1.15, "portionMultiplier": 1.00 },
+          "score": 60 }
+      ]
+    },
+
+    "Aleks Petersson": {
+      "fields": {
+        "weight": 77, "height": 183, "age": 26, "gender": "male",
+        "sleep": 7.5, "position": "forward", "diet": "regular",
+        "season": "cool", "wakeUpTime": "08:00", "matchTime": "20:00",
+        "matchDuration": 90, "morningWeight": 77.0, "postMatchWeight": 75.5,
+        "injuries": "", "skipBreakfast": false, "warmupIntensity": "full"
+      },
+      "history": [
+        { "date": "02.05.2026", "energy": 3110, "glycogen": "normal",
+          "feedback": { "physicalScore": 4, "legFatigue": false, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.00, "carbMultiplier": 1.00, "portionMultiplier": 1.00 },
+          "score": 90 },
+        { "date": "25.04.2026", "energy": 3080, "glycogen": "high",
+          "feedback": { "physicalScore": 3, "legFatigue": false, "mealTooHeavy": true, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.05, "carbMultiplier": 1.00, "portionMultiplier": 0.90 },
+          "score": 70 },
+        { "date": "18.04.2026", "energy": 3050, "glycogen": "normal",
+          "feedback": { "physicalScore": 4, "legFatigue": false, "mealTooHeavy": false, "lastedFullMatch": true },
+          "corrections": { "energyMultiplier": 1.00, "carbMultiplier": 1.00, "portionMultiplier": 1.00 },
+          "score": 90 }
+      ]
+    }
+  }
+}
