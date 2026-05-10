@@ -1,0 +1,90 @@
+# =============================================
+# MatchFuel - .gitignore
+# Project is pure static HTML/CSS/JS (no build, no Node.js).
+# Word/PowerPoint deliverables ARE tracked; only their lock files are ignored.
+# =============================================
+
+# ---------- Operating system ----------
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ---------- Editors / IDEs ----------
+# VS Code (track shared settings, ignore per-user noise)
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+.history/
+
+# JetBrains
+.idea/
+*.iml
+*.iws
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+# Vim / Emacs
+*.swp
+*.swo
+*~
+\#*\#
+.\#*
+
+# ---------- Microsoft Office lock files ----------
+# Word / PowerPoint create these while the file is open
+~$*.docx
+~$*.pptx
+~$*.xlsx
+~$*.doc
+~$*.ppt
+~WRL*.tmp
+
+# ---------- Node / npm (defensive - project has no real deps but package.json exists) ----------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.pnpm-debug.log*
+
+# ---------- Logs and temp ----------
+*.log
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
+
+# ---------- PowerShell ----------
+*.ps1.bak
+
+# ---------- Browser / dev ----------
+.cache/
+.parcel-cache/
+.firebase/
+.netlify/
+
+# ---------- Local-only / secrets ----------
+.env
+.env.local
+*.local
+secrets.json
