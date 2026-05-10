@@ -112,6 +112,6 @@ Software Project/
 
 ## Author
 
-**Erik Samodivkin** — Software Project course, Otto-von-Guericke-Universität Magdeburg, May 2026.
+**Erik Samodivkin** — Software Project course, Technical University of Sofia, 10.05.2026.
 
 The accompanying [`docs/PROJECT_REPORT.docx`](docs/PROJECT_REPORT.docx) covers the full 8-section academic report; [`docs/PROJECT_PRESENTATION.pptx`](docs/PROJECT_PRESENTATION.pptx) is the slide deck.
