@@ -54,9 +54,6 @@ Visit **[erik-sam.github.io/MatchFuel](https://erik-sam.github.io/MatchFuel/)** 
 Software Project/
 ├── index.html                  redirect to MatchFuel/
 ├── README.md                   this file
-├── PROJECT_REPORT.docx         full course report (8 sections)
-├── PROJECT_PRESENTATION.pptx   20-slide course presentation
-├── SPEAKER_NOTES.md            speaker notes for the presentation
 │
 ├── MatchFuel/                  application source
 │   ├── index.html                main page; loads ui.js
@@ -74,8 +71,19 @@ Software Project/
 │   ├── recovery.js               post-match plan
 │   └── profiles.js               localStorage layer
 │
-└── data/
-    └── sample_players.json     10 profiles with 33 history entries
+├── data/
+│   └── sample_players.json     10 profiles with 33 history entries
+│
+├── docs/                       course deliverables
+│   ├── PROJECT_REPORT.docx       full course report (8 sections)
+│   ├── PROJECT_PRESENTATION.pptx 20-slide course presentation
+│   ├── SPEAKER_NOTES.md          speaker notes for the presentation
+│   └── PROJECT_SUMMARY.md        developer-facing summary of the codebase
+│
+└── scripts/                    build pipeline (regenerate deliverables)
+    ├── build_report.ps1          rebuild PROJECT_REPORT.docx
+    ├── build_slides.ps1          rebuild PROJECT_PRESENTATION.pptx
+    └── extract_notes.ps1         move speaker notes pptx → md
 ```
 
 ---
@@ -106,4 +114,4 @@ Software Project/
 
 **Erik Samodivkin** — Software Project course, Otto-von-Guericke-Universität Magdeburg, May 2026.
 
-The accompanying [`PROJECT_REPORT.docx`](PROJECT_REPORT.docx) covers the full 8-section academic report; [`PROJECT_PRESENTATION.pptx`](PROJECT_PRESENTATION.pptx) is the slide deck.
+The accompanying [`docs/PROJECT_REPORT.docx`](docs/PROJECT_REPORT.docx) covers the full 8-section academic report; [`docs/PROJECT_PRESENTATION.pptx`](docs/PROJECT_PRESENTATION.pptx) is the slide deck.

@@ -1,7 +1,13 @@
 # =============================================
 # MatchFuel - .gitignore
 # Project is pure static HTML/CSS/JS (no build, no Node.js).
-# Word/PowerPoint deliverables ARE tracked; only their lock files are ignored.
+# Layout:
+#   MatchFuel/   application source (tracked)
+#   data/        sample_players.json (tracked)
+#   docs/        .docx / .pptx / .md deliverables (tracked)
+#                  -> only Office lock files (~$*.docx, ~$*.pptx) are ignored
+#   scripts/     build pipeline .ps1 files (tracked)
+#                  -> only *.ps1.bak backups are ignored
 # =============================================
 
 # ---------- Operating system ----------
@@ -50,13 +56,15 @@ $RECYCLE.BIN/
 .\#*
 
 # ---------- Microsoft Office lock files ----------
-# Word / PowerPoint create these while the file is open
+# Word / PowerPoint create these in docs/ while the file is open.
+# The patterns below match anywhere in the tree, including docs/.
 ~$*.docx
 ~$*.pptx
 ~$*.xlsx
 ~$*.doc
 ~$*.ppt
 ~WRL*.tmp
+docs/~$*
 
 # ---------- Node / npm (defensive - project has no real deps but package.json exists) ----------
 node_modules/
@@ -75,7 +83,11 @@ package-lock.json
 *.orig
 
 # ---------- PowerShell ----------
+# Build pipeline lives in scripts/ (tracked).
+# Ignore only backups and any transcript output.
 *.ps1.bak
+scripts/*.bak
+PowerShell_transcript.*.txt
 
 # ---------- Browser / dev ----------
 .cache/

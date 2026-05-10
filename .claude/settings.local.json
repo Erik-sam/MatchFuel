@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(& \"C:\\\\magdeburg\\\\uni\\\\Software Project\\\\build_report.ps1\")",
+      "PowerShell(try { $p = New-Object -ComObject PowerPoint.Application; \"PowerPoint OK: $\\($p.Version\\)\"; $p.Quit\\(\\) } catch { \"PowerPoint NOT available: $_\" })",
+      "PowerShell(& \"C:\\\\magdeburg\\\\uni\\\\Software Project\\\\build_slides.ps1\")",
+      "PowerShell($ppt = New-Object -ComObject PowerPoint.Application; $ppt.Visible = -1; $pres = $ppt.Presentations.Open\\(\"C:\\\\magdeburg\\\\uni\\\\Software Project\\\\PROJECT_PRESENTATION.pptx\", $true, $false, $false\\); \"slides: $\\($pres.Slides.Count\\)\"; $n = 0; foreach \\($s in $pres.Slides\\) { if \\($s.NotesPage.Shapes.Item\\(2\\).TextFrame.TextRange.Text.Length -gt 20\\) { $n++ } }; \"slides with notes: $n\"; $pres.Close\\(\\); $ppt.Quit\\(\\))",
+      "PowerShell(& \"C:\\\\magdeburg\\\\uni\\\\Software Project\\\\extract_notes.ps1\")"
+    ]
+  }
+}
