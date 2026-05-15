@@ -213,7 +213,7 @@ export function generateDayPlan(playerData, eveningMeal, matchTimeStr, warmupRes
 
   timeline.push(
     {
-      label: "⚽ Предматчово хранене",
+      label: "⚽ Предмачово хранене",
       time:  minutesToTime(preMealMinutes),
       items: preMeal,
       note:  preMealNote
